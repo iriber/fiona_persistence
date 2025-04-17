@@ -38,14 +38,14 @@ abstract class FionaDAO<T> {
     return queryResult.map((e) => fromMap(e)).toList();
   }
 
-  Future<T> getById(dynamic entityId) async {
-    final Map<String, Object?> queryResult = await persistence.findBy(entityName, where: "$id = ?", whereArgs: [entityId]);
-    return fromMap(queryResult);
+  Future<T?> getById(dynamic entityId) async {
+    final Map<String, Object?>? queryResult = await persistence.findBy(entityName, where: "$id = ?", whereArgs: [entityId]);
+    return (queryResult!=null)?fromMap(queryResult!):null;
   }
 
-  Future<T> getBy({String? where, List<Object?>? whereArgs}) async {
-    final Map<String, Object?> queryResult = await persistence.findBy(entityName, where: where, whereArgs: whereArgs);
-    return fromMap(queryResult);
+  Future<T?> getBy({String? where, List<Object?>? whereArgs}) async {
+    final Map<String, Object?>? queryResult = await persistence.findBy(entityName, where: where, whereArgs: whereArgs);
+    return (queryResult!=null)?fromMap(queryResult!):null;
   }
 
   Future<void> delete(T entity) async {

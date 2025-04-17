@@ -1,6 +1,6 @@
 name: fiona_persistence
 description: Fiona Persistence package project. To define interfaces related to data persistence
-version: 1.0.0
+version: 2.0.0
 homepage:
 
 environment:

@@ -8,7 +8,7 @@ abstract class FionaPersistence{
 
   Future<List<Map<String, Object?>>> findAll(String entityName, {String? where, List<Object?>? whereArgs, String? orderBy, int? limit, int? offset});
 
-  Future<Map<String, Object?>> findBy(String entityName, {String? where, List<Object?>? whereArgs});
+  Future<Map<String, Object?>?> findBy(String entityName, {String? where, List<Object?>? whereArgs});
 
   Future<int> add(String entityName, Map<String, Object?> entity);
 
