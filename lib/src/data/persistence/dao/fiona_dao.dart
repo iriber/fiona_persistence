@@ -61,4 +61,10 @@ abstract class FionaDAO<T> {
     } catch (err) {
     }
   }
+
+  Future<List<T>>  query(String sql, {List<Object?>? arguments}) async {
+    final List<Map<String, Object?>> queryResult = await persistence.query(sql, arguments: arguments);
+    return queryResult.map((e) => fromMap(e)).toList();
+  }
+
 }
